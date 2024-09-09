@@ -1,0 +1,17 @@
+[project]
+name = "modal_test"
+version = "0.1.0"
+description = "Add a short description here"
+authors = ["Tim <tim@makerain.com>"]
+channels = ["conda-forge"]
+platforms = ["osx-arm64"]
+
+[tasks]
+
+[dependencies]
+python = "3.11.*"
+xarray = ">=2024.7.0,<2024.8"
+cfgrib = ">=0.9.14.0,<0.9.15"
+
+[pypi-dependencies]
+modal = "*"
