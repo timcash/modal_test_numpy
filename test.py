@@ -15,18 +15,14 @@ loader_image = (
     .pip_install([])
 )
 
-app = modal.App(name="channel-numpy-test", image=loader_image)
+app = modal.App(name="numpy-test", image=loader_image)
 
 @app.function(
     image=loader_image,
 )
-def test_cron(x: int) -> int:
-    xr.open_dataset("/Users/tim/temp.grib2")
-    return x
+def test_xarray():
+    xr.open_dataset("./temp.grib2")
 
 @app.local_entrypoint()
 def main():
-    # print(test_cron.local(1))
-    print(test_cron.remote(1))
-    total = 0
-    print(total)
+    test_xarray.remote(1)
